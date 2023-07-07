@@ -6,16 +6,16 @@ function theme_admin_enqueue_styles()
 {
     wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');
     wp_enqueue_style('theme-style', get_stylesheet_directory_uri() . '/css/theme.css', array(), filemtime(get_stylesheet_directory() . '/css/theme.css'));
-    wp_enqueue_style('image-titre-widget', get_stylesheet_directory_uri() . '/css/widgets/image-titre-widget.css', array(), filemtime(get_stylesheet_directory() . '/css/widgets/image-titre-widget.css'));
+    wp_enqueue_style('bloc-image-titre-widget', get_stylesheet_directory_uri() . '/css/widgets/bloc-image-titre-widget.css', array(), filemtime(get_stylesheet_directory() . '/css/widgets/bloc-image-titre-widget.css'));
     wp_enqueue_style('banniere-titre-shortcode', get_stylesheet_directory_uri() . '/css/shortcodes/banniere-titre.css', array(), filemtime(get_stylesheet_directory() . '/css/shortcodes/banniere-titre.css'));
 }
 
 /* widgets */
-require_once(__DIR__ . '/widgets/ImageTitreWidget.php');
+require_once(__DIR__ . '/widgets/BlocImageTitreWidget.php');
 
 function register_widgets()
 {
-    register_widget('image_titre_widget');
+    register_widget('bloc_image_titre_widget');
 }
 add_action('widgets_init', 'register_widgets');
 
