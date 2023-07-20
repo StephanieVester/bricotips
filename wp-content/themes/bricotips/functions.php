@@ -10,7 +10,8 @@ function theme_admin_enqueue_styles()
     wp_enqueue_style('banniere-titre-shortcode', get_stylesheet_directory_uri() . '/css/shortcodes/banniere-titre.css', array(), filemtime(get_stylesheet_directory() . '/css/shortcodes/banniere-titre.css'));
 }
 
-/* widgets */
+/* WIDGETS */
+
 require_once(__DIR__ . '/widgets/BlocImageTitreWidget.php');
 
 function register_widgets()
@@ -20,7 +21,6 @@ function register_widgets()
 add_action('widgets_init', 'register_widgets');
 
 /* SHORTCODES */
-
 
 // Je dis à wordpress que j'ajoute un shortcode 'banniere-titre'
 add_shortcode('banniere-titre', 'banniere_titre_func');
@@ -60,3 +60,54 @@ function banniere_titre_func($atts)
 
     return $output;
 }
+
+/* HOOKS */
+
+// change le titre des articles de la catégorie outils
+function the_title_filter($title)
+{
+    if (is_single() && in_category('outils')) {
+        return 'Outil: ' . $title;
+    }
+    return $title;
+}
+
+add_filter('the_title', 'the_title_filter');
+
+// change le titre des pages archives par "liste des "+ nom de la catégorie
+add_filter('get_the_archive_title', function ($title) {
+    if (is_category()) {
+        $title = 'Liste des ' . strtolower(single_cat_title('', false));
+    }
+    return $title;
+});
+
+// Change le lien vers la catégorie "Outils"
+function the_category_filter($categories)
+{
+    return str_replace("Outils", "Tous les outils", $categories);
+}
+
+add_filter('the_category', 'the_category_filter');
+
+// ajoute une ligne et le titre "description" avant d'afficher le contenu d'un article dans la catégorie "outils" uniquement
+function the_content_filter($content)
+{
+    if (is_single() && in_category('outils')) {
+        return '<hr><h2>Description</h2>' . $content;
+    }
+    return $content;
+}
+
+add_filter('the_content', 'the_content_filter');
+
+// ajoute un lien a la fin de l'excerpt pour accéder a la page article 
+function the_excerpt_filter($content)
+{
+    if (is_archive()) {
+        return $content . '<div class="more-excerpt"><a href="' . get_the_permalink() . '">En savoir plus sur l\'outil</a></div>';
+    }
+    return $content;
+}
+
+add_filter('the_excerpt', 'the_excerpt_filter');
