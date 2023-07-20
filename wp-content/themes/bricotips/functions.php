@@ -51,7 +51,7 @@ function banniere_titre_func($atts)
             <h2 class="titre"><?= $atts['titre'] ?></h2>
         </div>
 
-<?php
+    <?php
     }
 
     //J'arrête de récupérer le flux d'information et le stock dans la fonction $output
@@ -61,7 +61,7 @@ function banniere_titre_func($atts)
     return $output;
 }
 
-/* HOOKS */
+/* HOOK FILTERS */
 
 // change le titre des articles de la catégorie outils
 function the_title_filter($title)
@@ -111,3 +111,36 @@ function the_excerpt_filter($content)
 }
 
 add_filter('the_excerpt', 'the_excerpt_filter');
+
+/* HOOK ACTIONS */
+
+function loop_end_action()
+{
+    // syntaxe if différente
+    if (is_archive()) :
+    ?>
+        <p>
+            <?php
+            echo do_shortcode('[banniere-titre src="http://localhost/bricotips/wp-content/uploads/2023/07/workTips.jpeg" titre="Bricotips"]')
+            ?>
+        </p>
+    <?php
+    endif;
+}
+add_action('loop_end', 'loop_end_action');
+
+$shown = false; // déclare un booleen pour déterminer si le texte a été vu
+function bricotips_intro_section_action()
+{
+    global $shown; // utilise la variable $shown dans la fonction
+    if (is_archive() && in_category('outils') && !$shown) {
+    ?>
+        <p class="intro">
+            Vous trouverez dans cette page une liste de tous les outils référencés par Bricotips.
+            Cette liste n'est pas exhaustive mais sera enrichie au fur et à mesure du temps.
+        </p>
+<?php
+        $shown = true; // passe a vu = true
+    }
+}
+add_action('bricotips_intro_section', 'bricotips_intro_section_action');
