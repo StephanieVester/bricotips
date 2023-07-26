@@ -1,0 +1,23 @@
+[26-Jul-2023 12:51:27 UTC] PHP Parse error:  syntax error, unexpected end of file in C:\wamp64\www\bricotips\wp-content\themes\bricotips\functions.php on line 147
+[26-Jul-2023 12:51:29 UTC] PHP Parse error:  syntax error, unexpected end of file in C:\wamp64\www\bricotips\wp-content\themes\bricotips\functions.php on line 147
+[26-Jul-2023 13:16:14 UTC] PHP Parse error:  syntax error, unexpected '}' in C:\wamp64\www\bricotips\wp-content\plugins\bricotips-login\includes\class-bricotips-login.php on line 161
+[26-Jul-2023 13:18:00 UTC] PHP Parse error:  syntax error, unexpected '}' in C:\wamp64\www\bricotips\wp-content\plugins\bricotips-login\includes\class-bricotips-login.php on line 161
+[26-Jul-2023 13:37:48 UTC] PHP Notice:  Undefined property: Bricotips_Top_Contact_Public::$emai in C:\wamp64\www\bricotips\wp-content\plugins\bricotips-top-contact\public\class-bricotips-top-contact-public.php on line 111
+[26-Jul-2023 13:37:48 UTC] PHP Stack trace:
+[26-Jul-2023 13:37:48 UTC] PHP   1. {main}() C:\wamp64\www\bricotips\index.php:0
+[26-Jul-2023 13:37:48 UTC] PHP   2. require() C:\wamp64\www\bricotips\index.php:17
+[26-Jul-2023 13:37:48 UTC] PHP   3. require_once() C:\wamp64\www\bricotips\wp-blog-header.php:19
+[26-Jul-2023 13:37:48 UTC] PHP   4. include() C:\wamp64\www\bricotips\wp-includes\template-loader.php:106
+[26-Jul-2023 13:37:48 UTC] PHP   5. get_template_part($slug = 'singular', $name = *uninitialized*, $args = *uninitialized*) C:\wamp64\www\bricotips\wp-content\themes\twentytwenty\templates\template-full-width.php:11
+[26-Jul-2023 13:37:48 UTC] PHP   6. locate_template($template_names = [0 => 'singular.php'], $load = TRUE, $load_once = FALSE, $args = []) C:\wamp64\www\bricotips\wp-includes\general-template.php:204
+[26-Jul-2023 13:37:48 UTC] PHP   7. load_template($_template_file = 'C:\\wamp64\\www\\bricotips/wp-content/themes/twentytwenty/singular.php', $load_once = FALSE, $args = []) C:\wamp64\www\bricotips\wp-includes\template.php:718
+[26-Jul-2023 13:37:48 UTC] PHP   8. require() C:\wamp64\www\bricotips\wp-includes\template.php:785
+[26-Jul-2023 13:37:48 UTC] PHP   9. get_header($name = *uninitialized*, $args = *uninitialized*) C:\wamp64\www\bricotips\wp-content\themes\twentytwenty\singular.php:12
+[26-Jul-2023 13:37:48 UTC] PHP  10. locate_template($template_names = [0 => 'header.php'], $load = TRUE, $load_once = TRUE, $args = []) C:\wamp64\www\bricotips\wp-includes\general-template.php:48
+[26-Jul-2023 13:37:48 UTC] PHP  11. load_template($_template_file = 'C:\\wamp64\\www\\bricotips/wp-content/themes/bricotips/header.php', $load_once = TRUE, $args = []) C:\wamp64\www\bricotips\wp-includes\template.php:718
+[26-Jul-2023 13:37:48 UTC] PHP  12. require_once() C:\wamp64\www\bricotips\wp-includes\template.php:783
+[26-Jul-2023 13:37:48 UTC] PHP  13. wp_body_open() C:\wamp64\www\bricotips\wp-content\themes\bricotips\header.php:30
+[26-Jul-2023 13:37:48 UTC] PHP  14. do_action($hook_name = 'wp_body_open') C:\wamp64\www\bricotips\wp-includes\general-template.php:3081
+[26-Jul-2023 13:37:48 UTC] PHP  15. WP_Hook->do_action($args = [0 => '']) C:\wamp64\www\bricotips\wp-includes\plugin.php:517
+[26-Jul-2023 13:37:48 UTC] PHP  16. WP_Hook->apply_filters($value = '', $args = [0 => '']) C:\wamp64\www\bricotips\wp-includes\class-wp-hook.php:332
+[26-Jul-2023 13:37:48 UTC] PHP  17. Bricotips_Top_Contact_Public->top_bar_contact('') C:\wamp64\www\bricotips\wp-includes\class-wp-hook.php:308

@@ -1,0 +1,1 @@
+C:/wamp64/www/bricotips/wp-content/plugins/query-monitor/wp-content/db.php
